@@ -20,9 +20,34 @@
 // printProfileData(profileDataArgs);
 
 // Notice the lack of parentheses around the `profileDataArr` parameter?
-const printProfileData = profileDataArr => {
-    for (let i = 0; i < profileDataArr.length; i += 1) {
-        console.log(profileDataArr[i]);
-    }
-};
+// const printProfileData = profileDataArr => {
+//     for (let i = 0; i < profileDataArr.length; i += 1) {
+//         console.log(profileDataArr[i]);
+//     }
+// };
 
+// printProfileData(profileDataArgs);
+
+// console.log('================');
+
+// const printProfileData = profileDataArr.forEach(function (profileItem) {
+//     console.log(profileItem);
+// });
+
+profileDataArr.forEach(profileItem => console.log(profileItem));
+
+printProfileData(profileDataArgs);
+
+// let dog = 'poodle';
+// if (true === true) {
+//     let dog = 'pitbull';
+//     console.log(dog);
+// }
+// console.log(dog);
+
+// var pig = 'poodle';
+// if (true === true) {
+//     var pig = 'pitbull';
+//     console.log(pig);
+// }
+// console.log(pig);
