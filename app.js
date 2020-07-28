@@ -1,3 +1,5 @@
+const fs = require('fs');
+const generatePage = require('./src/page-template.js');
 // console.log('Hello Node');node app.js 
 //example of displaying error bc doc isn't defined
 // console.log(document);
@@ -11,8 +13,11 @@
 // console.log(commandLineArgs);
 // console.log (process);
 
-// const profileDataArgs = process.argv.slice(2, process.argv.length);
+const profileDataArgs = process.argv.slice(2, process.argv.length);
 // console.log(profileDataArgs);
+// const name = profileDataArgs[0];
+// const github = profileDataArgs[1];
+const [name, github] = profileDataArgs;
 
 // const printProfileData = (profileDataArr) => {
 //     console.log(profileDataArr);
@@ -34,9 +39,9 @@
 //     console.log(profileItem);
 // });
 
-profileDataArr.forEach(profileItem => console.log(profileItem));
+// profileDataArr.forEach(profileItem => console.log(profileItem));
 
-printProfileData(profileDataArgs);
+// printProfileData(profileDataArgs);
 
 // let dog = 'poodle';
 // if (true === true) {
@@ -51,3 +56,12 @@ printProfileData(profileDataArgs);
 //     console.log(pig);
 // }
 // console.log(pig);
+
+
+// console.log(name, github);
+// console.log(generatePage(name, github));
+fs.writeFile('index.html', generatePage(name, github), err => {
+    if (err) throw err;
+
+    console.log('Portfolio complete! Check out index.html to see the output!');
+});
