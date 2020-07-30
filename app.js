@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const generatePage = require('./src/page-template.js');
+const fs = require('fs');
 
 inquirer
 const promptUser = () => {
@@ -130,15 +132,24 @@ const promptProject = portfolioData => {
 //     .then(answers => console.log(answers))
 //     .then(promptProject)
 //     .then(projectAnswers => console.log(projectAnswers));
+
 promptUser()
     .then(promptProject)
     .then(portfolioData => {
-        console.log(portfolioData);
+        // console.log(portfolioData);
+
+        const pageHTML = generatePage(portfolioData);
+
+        fs.writeFile('./index.html', pageHTML, err => {
+            if (err) throw new Error(err);
+
+            console.log('Page created! Check out index.html in this directory to see it!');
+        });
     });
 
-// const fs = require('fs');
-// const generatePage = require('./src/page-template.js');
-// console.log('Hello Node');node app.js 
+
+
+// console.log('Hello Node');node app.js
 //example of displaying error bc doc isn't defined
 // console.log(document);
 
